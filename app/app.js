@@ -26,12 +26,33 @@ kats.forEach(function(kat){
     // create HTML using String Template
     var katHTML = 
    `<div class="katName">${kat.name}</div>
-    <div class="katScore">${kat.score}</div>
-    <div class="katPic"><img src="${kat.pic}" alt="a kat pic"></img></div>`;
-
+    <div id="${kat.name}score" class="katScore">${kat.score}</div>
+    <div><img src="${kat.pic}" alt="a kat pic" class="katPic"></img></div>`;
     
     thisKatDiv.innerHTML= katHTML;
 
     body.appendChild(thisKatDiv);
-});
 
+});
+var thisKat;
+// Event Listener on Kat images
+katPics = document.querySelectorAll('.katPic');
+katPics.forEach(function(kat){
+    kat.addEventListener('click',function(e){
+        
+        var katName = e.target.parentElement.previousElementSibling.previousElementSibling.innerText;
+        thisKat = kats.filter(function(kat){
+            return kat.name === katName;
+        });
+        clickedKat(thisKat[0]);
+        
+    })
+})
+
+function clickedKat(kat){
+    katScoreString = "#"+kat.name+"score";
+    katScore = document.querySelector(katScoreString);
+    kat.click();
+    katScore.innerText = kat.score;
+    console.log(katScore.innerText);
+}
