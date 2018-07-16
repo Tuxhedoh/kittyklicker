@@ -4,10 +4,11 @@
 function Kat(name){
     this.name= name,
     this.score= 0;
-    this.pic='/app/images/hairless.jpg'
+    this.pic='app/images/hairless.jpg'
     this.click = function(){
         return ++this.score;
     }
+
 
 };
 
@@ -17,9 +18,10 @@ let kats = [];
 kats.push(kat1 = new Kat('whiskers'));
 kats.push(kat2 = new Kat('polly'));
 
+var thisKat;
 // loop through kats. 
 kats.forEach(function(kat){
-
+    thisKat = kat;
     // create individual Kat Div
     var thisKatDiv = document.createElement('div');
     
@@ -30,24 +32,34 @@ kats.forEach(function(kat){
     <div><img src="${kat.pic}" alt="a kat pic" class="katPic"></img></div>`;
     
     thisKatDiv.innerHTML= katHTML;
-
+    // var katScore = document.querySelector('')
     body.appendChild(thisKatDiv);
 
-});
-var thisKat;
-// Event Listener on Kat images
-katPics = document.querySelectorAll('.katPic');
-katPics.forEach(function(kat){
-    kat.addEventListener('click',function(e){
+    thisKatDiv.addEventListener('click', function(){
+        let katScoreString = "#"+kat.name+"score";
+        let katScore = document.querySelector(katScoreString);
+        kat.click();
+        katScore.innerText = kat.score;
+        console.log(katScore.innerText);
+    });
+    
+    });
+
+
+// var thisKat;
+// // Event Listener on Kat images
+// katPics = document.querySelectorAll('.katPic');
+// katPics.forEach(function(kat){
+//     kat.addEventListener('click',function(e){
         
-        var katName = e.target.parentElement.previousElementSibling.previousElementSibling.innerText;
-        thisKat = kats.filter(function(kat){
-            return kat.name === katName;
-        });
-        clickedKat(thisKat[0]);
+//         var katName = e.target.parentElement.previousElementSibling.previousElementSibling.innerText;
+//         thisKat = kats.filter(function(kat){
+//             return kat.name === katName;
+//         });
+//         clickedKat(thisKat[0]);
         
-    })
-})
+//     })
+// })
 
 function clickedKat(kat){
     katScoreString = "#"+kat.name+"score";
