@@ -1,5 +1,32 @@
+header {
+    color: cornflowerblue;
+    text-align: center;
+    font-size: 2rem;
+}
 .main {
     display:grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 6fr;
     grid-template-rows: auto;
+}
+
+.katShow {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+    grid-template-rows: auto;
+}
+
+.katPic {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.katList {
+    max-height: 200px;
+    max-width: 200px;
+    display:grid;
+    grid-auto-flow: dense
+}
+.katList div {
+    cursor: pointer;
 }
