@@ -9,11 +9,8 @@ function Kat(name,picture){
         return ++this.score;
 
     }
-    this.update = function(){
-        document.querySelector('katScore').innerText = this.score;
-        
-    }
 };
+
 
 const body = document.querySelector('.main'),
       katList = document.querySelector('.katList'),
@@ -64,11 +61,19 @@ function showKat(kat){
         katShow.removeChild(katShow.firstChild);
     }
     katShow.appendChild(katPage);
-
+    katEvent();
 }
 
-
-
+function katEvent(){
+    let currentKatPic = document.querySelector('img'),
+        currentKatName = document.querySelector('.katName').innerText,
+        currentKat = kats.find( kat => kat.name === currentKatName);
+        currentKatScore = document.querySelector('.katScore');
+    currentKatPic.addEventListener('click',function(e){
+        currentKat.click();
+        currentKatScore.innerText = currentKat.score
+    });
+}
 // // loop through kats. 
 // kats.forEach(function(kat){
 //         // create individual Kat Div
