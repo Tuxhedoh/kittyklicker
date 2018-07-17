@@ -17,11 +17,11 @@ const body = document.querySelector('.main'),
       katShow = document.querySelector('.katShow');
 
 let kats = [];
-kats.push(kat1 = new Kat('Whiskers','ugly-kitten1.jpg'));
-kats.push(kat2 = new Kat('Polly','hairless.jpg'));
-kats.push(kat3 = new Kat('Franklin','hairless.jpg'));
-kats.push(kat4 = new Kat('Hey-Zeus','hairless.jpg'));
-kats.push(kat5 = new Kat('Twodulls','hairless.jpg'));
+kats.push(kat1 = new Kat('Whiskers','kitty1.jpg'));
+kats.push(kat2 = new Kat('Polly','kitty2.jpg'));
+kats.push(kat3 = new Kat('Franklin','kitty3.jpg'));
+kats.push(kat4 = new Kat('Hey-Zeus','kitty4.jpg'));
+kats.push(kat5 = new Kat('Twodulls','kitty5.jpg'));
 
 // loop through kats and build list of names?
 kats.forEach(function(kat){
